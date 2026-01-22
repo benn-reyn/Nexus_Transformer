@@ -1,84 +1,51 @@
 Nexus_Transformer/
 ├── data/
-│   ├── pipelines/
-│   │   ├── polygon_live.py
-│   │   ├── sec_ingestor.py
-│   │   └── twitter_stream.py
-│   ├── feature_store/
-│   │   ├── historical/
-│   │   └── realtime/
+│   ├── ingest/
+│   │   ├── prices.py
+│   │   ├── fundamentals.py
+│   │   └── alt_data.py   # optional, static
+│   ├── features/
+│   │   ├── returns.py
+│   │   ├── fundamentals.py
+│   │   └── regimes.py
 │   └── validation/
-│       ├── data_quality.py
-│       └── drift_detection.py
+│       ├── leakage.py
+│       └── missingness.py
+│
 ├── models/
-│   ├── foundational/
-│   │   ├── finbert_ft/
-│   │   ├── time_series_mae/
-│   │   └── contrastive/
-│   ├── specialized/
-│   │   ├── graph_attention/
-│   │   ├── transformer_xl/
-│   │   ├── mixture_experts/
-│   │   └── temporal_fusion/
-│   └── ensembles/
-│       ├── stacking/
-│       ├── boosting/
-│       └── attention_fusion/
-├── execution/
-│   ├── market_microstructure/
-│   │   ├── volume_profile.py
-│   │   ├── order_book.py
-│   │   └── vwap_twap.py
-│   ├── risk_engine/
-│   │   ├── var_cvar.py
-│   │   ├── stress_tests.py
-│   │   └── exposure_monitor.py
-│   └── portfolio/
-│       ├── optimization.py
-│       ├── construction.py
-│       └── rebalancing.py
+│   ├── baselines/
+│   │   ├── ipca.py
+│   │   ├── pca_lasso.py
+│   │   └── arima_garch.py
+│   ├── representation/
+│   │   ├── ts_autoencoder.py
+│   │   └── transformer_encoder.py
+│   └── heads/
+│       ├── return_forecast.py
+│       └── regime_classifier.py
+│
+├── backtest/
+│   ├── walk_forward.py
+│   ├── transaction_costs.py
+│   └── metrics.py
+│
+├── portfolio/
+│   ├── construction.py
+│   ├── risk.py
+│   └── constraints.py
+│
 ├── research/
 │   ├── notebooks/
-│   │   ├── 01_alternative_data_exploration.ipynb
-│   │   ├── 02_graph_neural_network.ipynb
-│   │   ├── 03_llm_financial_analysis.ipynb
-│   │   └── 04_market_regime_detection.ipynb
-│   ├── papers/
-│   │   ├── attention_is_all_you_need/
-│   │   ├── temporal_fusion_transformers/
-│   │   └── mixture_of_time_series_experts/
-│   └── ablation_studies/
-│       ├── feature_ablation.ipynb
-│       ├── model_ablation.ipynb
-│       └── hyperparameter_study.ipynb
-├── production/
-│   ├── docker/
-│   │   ├── Dockerfile
-│   │   ├── docker-compose.yml
-│   │   └── kubernetes/
-│   ├── orchestration/
-│   │   ├── airflow/
-│   │   ├── prefect/
-│   │   └── dagster/
-│   ├── monitoring/
-│   │   ├── prometheus/
-│   │   ├── grafana/
-│   │   └── alerts/
-│   └── api/
-│       ├── fastapi/
-│       ├── streaming/
-│       └── client/
-├── documentation/
-│   ├── architecture.md
-│   ├── api.md
-│   ├── model_cards/
-│   └── deployment_guide.md
-├── tests/
-│   ├── unit/
-│   ├── integration/
-│   └── backtest_validation/
-└── configs/
-    ├── data_config.yaml
-    ├── model_config.yaml
-    ├── backtest_config.yaml
-    └── deployment_config.yaml
+│   │   ├── 01_signal_motivation.ipynb
+│   │   ├── 02_representation_learning.ipynb
+│   │   ├── 03_regime_dependence.ipynb
+│   │   └── 04_backtest_results.ipynb
+│   └── ablations/
+│
+├── configs/
+│   ├── data.yaml
+│   ├── model.yaml
+│   └── backtest.yaml
+│
+├── README.md
+└── results/
